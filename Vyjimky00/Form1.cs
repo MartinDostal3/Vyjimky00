@@ -232,7 +232,10 @@ namespace Vyjimky00
             //nechceme celočíselně dělit menší číslo větším - vyhodíme vlastní výjimku DelitelException
             int x = int.Parse(textBox7.Text);
             int y = int.Parse(textBox8.Text);
-            
+            Exception ex = new Exception();
+
+                
+        
            
         }
 
