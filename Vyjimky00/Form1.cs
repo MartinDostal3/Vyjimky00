@@ -21,6 +21,40 @@ namespace Vyjimky00
         private void button1_Click(object sender, EventArgs e)
         {
             int a,b,podil;
+           if( int.TryParse(textBox1.Text, out a))
+           {
+                if(int.TryParse(textBox2.Text, out b))
+                {
+                    if(b > 0)
+                    {
+                        podil = a / b;
+                        MessageBox.Show("podil je: " + podil);
+                    }
+                    else
+                    {
+                        MessageBox.Show("Nulou dělit nelze");
+                        textBox2.Focus();
+                        textBox2.SelectAll();
+                    }
+                  
+                }
+                else
+                {
+                    MessageBox.Show("Zadej cislo b");
+                    textBox2.Focus();
+                    textBox2.SelectAll();
+                }
+            }
+           else
+           {
+             MessageBox.Show("Zadej cislo a");
+                textBox1.Focus();
+                textBox1.SelectAll();
+           }
+            
+
+           
+         
             
             
         }
@@ -28,6 +62,17 @@ namespace Vyjimky00
         private void button2_Click(object sender, EventArgs e)
         {
             int a, b, podil;
+            try
+            {
+                a = int.Parse(textBox1.Text);
+                b = int.Parse(textBox2.Text);
+                podil = a / b;
+                MessageBox.Show("podil je: " + podil);
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
             
             
         }
@@ -35,6 +80,42 @@ namespace Vyjimky00
         private void button3_Click(object sender, EventArgs e)
         {
             int a, b, podil;
+            try
+            {
+                a = int.Parse(textBox1.Text);
+                try
+                {
+                    b = int.Parse(textBox2.Text);
+                    if(b > 0)
+                    {
+                        podil = a / b;
+                        MessageBox.Show("podil je: " + podil);
+                    }
+                    else
+                    {
+                        MessageBox.Show("Nulou delit nelze.");
+                        textBox2.Focus();
+                        textBox2.SelectAll();
+                    }
+                   
+                }
+                catch(FormatException)
+                {
+                    MessageBox.Show("musíš zadat celé číslo");
+                    textBox2.Focus();
+                    textBox2.SelectAll();
+
+                }
+                
+            }
+            catch(FormatException)
+            {
+                MessageBox.Show("musíš zadat celé číslo");
+                textBox1.Focus();
+                textBox1.SelectAll();
+            }
+
+
             
         }
 
