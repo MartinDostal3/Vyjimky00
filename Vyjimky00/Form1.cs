@@ -85,28 +85,21 @@ namespace Vyjimky00
                 a = int.Parse(textBox1.Text);
                 try
                 {
-                    b = int.Parse(textBox2.Text);
-                    if(b > 0)
-                    {
-                        podil = a / b;
-                        MessageBox.Show("podil je: " + podil);
-                    }
-                    else
-                    {
-                        MessageBox.Show("Nulou delit nelze.");
-                        textBox2.Focus();
-                        textBox2.SelectAll();
-                    }
-                   
+                    b = int.Parse(textBox2.Text);                   
+                    podil = a / b;                    
                 }
                 catch(FormatException)
                 {
                     MessageBox.Show("musíš zadat celé číslo");
                     textBox2.Focus();
                     textBox2.SelectAll();
-
                 }
-                
+                catch (DivideByZeroException)
+                {
+                    MessageBox.Show("dělení nulou");
+                    textBox2.Focus();
+                    textBox2.SelectAll();
+                }                
             }
             catch(FormatException)
             {
@@ -121,15 +114,73 @@ namespace Vyjimky00
 
         private void button4_Click(object sender, EventArgs e)
         {
-            
+            try
+            {
+                int[] p = new int[10];
+                int index = int.Parse(textBox3.Text);
+                p[index] = 100;
+                MessageBox.Show("Do prvku pole se zadanym indexem bylo zadano cislo 100");
+            }
+            catch(IndexOutOfRangeException)
+            {
+                MessageBox.Show("Index musí být v rozsahu 0-9");
+                textBox3.Focus();
+                textBox3.SelectAll();
+            }
+            catch (FormatException)
+            {
+                MessageBox.Show("musíš zadat celé číslo");
+                textBox3.Focus();
+                textBox3.SelectAll();
+            }
+
         }
 
         private void button5_Click(object sender, EventArgs e)
         {
             //Pozor! nejsou ošetřeny výjimky  FormatException a OverflowException
+
+
+
+            //int a, b, soucin;
+            //try
+            //{
+            //    a = int.Parse(textBox4.Text);
+            //    b = int.Parse(textBox5.Text);
+            //    soucin = checked(a * b);
+            //    MessageBox.Show("Soucin je: " + soucin);
+            //}
+            //catch(OverflowException)
+            //{
+            //    MessageBox.Show("Přetekl jsem !!! (soucin je prilis male cislo nebo velke cislo)");
+            //}
+
             int a, b, soucin;
-            
-            
+            try
+            {
+                a = int.Parse(textBox4.Text);
+                b = int.Parse(textBox5.Text);
+                
+                checked
+                {
+                    soucin = a * b;
+                }
+                MessageBox.Show("Soucin je: " + soucin);
+            }
+            catch (OverflowException)
+            {
+                MessageBox.Show("Přetekl jsem !!! (soucin je prilis male cislo nebo velke cislo)");
+            }
+
+
+
+
+
+
+
+
+
+
         }
 
         private void button6_Click(object sender, EventArgs e)
