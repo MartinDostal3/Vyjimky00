@@ -44,15 +44,16 @@ namespace Vyjimky02
 
         private void button2_Click(object sender, EventArgs e)
         {
-            int mocnina = 1;
-            int a = pole[0];
-            int n = pole[5];
+          
 
-           // pole[0] = 10;
-           // pole[5] = 10;
+            //pole[0] = 10;
+            //pole[5] = 10;
 
             try
             {
+                int mocnina = 1;
+                int a = pole[0];
+                int n = pole[5];
                 for (int i = 0; i < n; i++)
                 {
                     checked
@@ -69,8 +70,10 @@ namespace Vyjimky02
             }
             catch (IndexOutOfRangeException)
             {
-                MessageBox.Show("");
-                
+                MessageBox.Show("musis zadat cislo 6, nebo vetsi.");
+                textBox1.Focus();
+                textBox1.SelectAll();
+
             }
 
 
