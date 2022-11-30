@@ -22,16 +22,26 @@ namespace Vyjimky02
 
         private void button1_Click(object sender, EventArgs e)
         {
-            int n = int.Parse(textBox1.Text);
-            Random rnd = new Random();
-            pole = new int[n];
-            listBox1.Items.Clear();
-            for (int i = 0; i < pole.Length; i++)
+
+            try
             {
-                pole[i] = rnd.Next(1, 21);
+                int n = int.Parse(textBox1.Text);
+                Random rnd = new Random();
+                pole = new int[n];
+                listBox1.Items.Clear();
+                for (int i = 0; i < pole.Length; i++)
+                {
+                    pole[i] = rnd.Next(1, 21);
 
 
+                }
             }
+            catch(FormatException)
+            {
+                MessageBox.Show("Musíš zadat celé číslo");
+            }
+            
+           
             for (int i = 0; i < pole.Length; i++)
             {
                 double x = pole[i];
