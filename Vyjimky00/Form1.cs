@@ -96,7 +96,7 @@ namespace Vyjimky00
                 }
                 catch (DivideByZeroException)
                 {
-                    MessageBox.Show("dělení nulou");
+                    MessageBox.Show("nelze dělit nulou");
                     textBox2.Focus();
                     textBox2.SelectAll();
                 }                
