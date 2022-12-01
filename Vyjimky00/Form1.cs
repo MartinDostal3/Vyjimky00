@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.IO;
+using System.CodeDom;
 
 namespace Vyjimky00
 {
@@ -107,6 +108,12 @@ namespace Vyjimky00
                 textBox1.Focus();
                 textBox1.SelectAll();
             }
+            catch(OverflowException)
+            {
+                MessageBox.Show("Zadané číslo je příliš velké nebo malé");
+                textBox1.Focus();
+                textBox1.SelectAll();
+            }
 
 
             
@@ -155,9 +162,10 @@ namespace Vyjimky00
             //    MessageBox.Show("Přetekl jsem !!! (soucin je prilis male cislo nebo velke cislo)");
             //}
 
-            int a, b, soucin;
-            try
+            
+            try //zde nejsou ověřeny vstupy
             {
+                int a, b, soucin;
                 a = int.Parse(textBox4.Text);
                 b = int.Parse(textBox5.Text);
                 
@@ -204,10 +212,36 @@ namespace Vyjimky00
             //Notace using, zjednodušuje práci s instancemi tříd pro čtení a zápis do souborů. Blok using nahrazuje blok try a finally.
             //blok finally C# vygeneruje sám a sám zajistí, aby daná instance readeru nebo writeru soubor uzavřela.
 
-            //using nahrazuje pouze try-finally, nikoli catch!.
+            //using nahrazuje pouze try-finally, nikoli try-catch!.
             //Metodu, ve které se použivá using, musíme stejně volat v try-catch bloku.
 
             listBox1.Items.Clear();
+
+            try
+            {
+                using(StreamReader sr = new StreamReader(@"..\..\Text.txt"))
+                {
+                    while (!sr.EndOfStream)
+                    {
+                        string line = sr.ReadLine();
+                        listBox1.Items.Add(line);
+                    }
+
+                }
+
+            }
+            catch(FileNotFoundException ex)
+            {
+                MessageBox.Show(ex.Message);
+                MessageBox.Show("soubor nebyl nalezen.");
+            }
+
+
+
+
+
+
+
             
 
         }
@@ -246,6 +280,32 @@ namespace Vyjimky00
             //Zobrazte textový soubor Text.txt v listBox1
             //Pomocí výjimky ošetřete existenci souboru
             listBox1.Items.Clear();
+            StreamReader sr = null;
+            try
+            {
+               
+                 sr = new StreamReader(@"..\..\Text.txt");
+                while (!sr.EndOfStream)
+                {
+                    string line = sr.ReadLine();
+
+                    //!!!!***Zde se zpracovává přetená řádek line - a může nastat vyjímka***
+                    listBox1.Items.Add(line);
+                }
+                
+               // sr.Close();
+            } 
+            catch(FileNotFoundException ex)
+            {
+                MessageBox.Show(ex.Message);
+                MessageBox.Show("soubor nebyl nalezen.");
+            }
+            finally
+            {
+                if (sr != null) sr.Close();
+            }
+                                     
+            
             
             
         }
