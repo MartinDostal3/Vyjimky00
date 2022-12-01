@@ -226,7 +226,7 @@ namespace Vyjimky00
                         string line = sr.ReadLine();
                         listBox1.Items.Add(line);
                     }
-
+                    //nemusime psat - sr.Close();
                 }
 
             }
