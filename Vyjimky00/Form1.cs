@@ -193,10 +193,60 @@ namespace Vyjimky00
 
         private void button6_Click(object sender, EventArgs e)
         {
-            
+
             //V textovém souboru Text.txt jsou v řádcích zapsána celá čísla
             //Sečtěte všechna celá čísla v souboru a jednotlivé řádky průběžně zobrazujte v ListBox
             //Řádky s chybou (není to číslo, číslo mimo rozsah) nebudou do součtu zahrnuty - ošetřete pomocí výjimek
+
+            int soucet = 0;
+            int x = 0;
+            try
+            {
+                using (StreamReader sr = new StreamReader(@"..\..\Text.txt"))
+                {
+                    while (!sr.EndOfStream)
+                    {
+                        string line = sr.ReadLine();
+                        listBox1.Items.Add(line);
+
+                        try
+                        {
+                           x = int.Parse(line);
+                        }
+                        catch(OverflowException)
+                        {
+                            MessageBox.Show("V souboru je na řádku příliš velké nebo malé číslo.");
+                            continue; // cyklus nepokracuje a probehne od zacatku 
+                        }
+                        catch(FormatException)
+                        {
+                            MessageBox.Show("V souboru je zapsán jiný znak než číslo.");
+                            continue;
+                        }
+                        
+                        soucet = checked(soucet + x);
+
+
+
+                    }
+                    //nemusime psat - sr.Close();
+                }
+                MessageBox.Show("Soucet je: " + soucet);
+            }
+            catch (FileNotFoundException)
+            {               
+                MessageBox.Show("soubor nebyl nalezen, zkontroluj umístění a název soboru.");
+            }
+            catch(OverflowException)
+            {
+                MessageBox.Show("Součet je příliš velké nebo malé číslo");
+            }
+
+           
+
+
+
+
 
 
             listBox1.Items.Clear();

@@ -27,6 +27,9 @@ namespace Vyjimky01
                 {
                     b = int.Parse(textBox2.Text);
                     podil = a / b;
+                    soucet = b + a;
+                    soucin = a * b;
+                    rozdil = a - b; 
                 }
                 catch (FormatException)
                 {
