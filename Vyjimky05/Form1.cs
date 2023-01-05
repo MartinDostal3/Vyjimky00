@@ -21,64 +21,43 @@ namespace Vyjimky05
 
         private void button1_Click(object sender, EventArgs e)
         {
-            pole = new int[textBox1.Lines.Count()];
-          
-
-
-            try
-            {
-                for (int i = 0; i < textBox1.Lines.Count(); i++)
-                {
-                    int cislo = int.Parse(textBox1.Lines[i]);
-                    pole[i] = cislo;
-                }
-
-            }
-            catch(FormatException)
-            {
-                for (int i = 0; i < pole.Length; i++)
-                {
-                    pole[i] = 0;
-                }
-            }
-            catch(OverflowException)
-            {
-                for (int i = 0; i < pole.Length; i++)
-                {
-                 int cislo = pole[i];
-                    if(cislo > Int32.MaxValue)
-                    {
-                        if (cislo > 0)
-                        {
-                            cislo = Int32.MaxValue;
-                        }
-                        else cislo = Int32.MinValue;
-                    }
-                }
-            }
-            for (int i = 0; i < pole.Length; i++)
+            int[] pole = new int[textBox1.Lines.Length];
+            for (int i = 0; i < textBox1.Lines.Length; i++)
             {
                 try
                 {
-                    pole[i] = checked(pole[i] * 2);
+                    int cislo = int.Parse(textBox1.Lines[i]);
+                    try
+                    {
+                        int dvojnasobek = checked(cislo * 2);
+                        pole[i] = dvojnasobek;
+                    }
+                    catch (OverflowException)
+                    {
+                        pole[i] = cislo;
+                    }
+                }
+                catch (FormatException)
+                {
+                    pole[i] = 0;
                 }
                 catch (OverflowException)
                 {
-                    // přetečení - prvek zůstane nezměněn
+                    string text = textBox1.Lines[i];
+                    if (text[0] == '-')
+                    {
+                        pole[i] = Int32.MinValue;
+                    }
+                    else
+                    {
+                        pole[i] = Int32.MaxValue;
+                    }
                 }
             }
-
-
-
-
-
-
-
-
             listBox1.Items.Clear();
-            foreach (int prvek in pole)
+            foreach (int x in pole)
             {
-                listBox1.Items.Add(prvek);
+                listBox1.Items.Add(x);
             }
         }
     }
