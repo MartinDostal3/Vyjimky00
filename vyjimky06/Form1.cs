@@ -32,20 +32,19 @@ namespace vyjimky06
                         int cislo;
                         try
                         {
-                            cislo = int.Parse(line);
-
-
-                            vysledek = checked(vysledek * cislo);
+                            cislo = int.Parse(line);                           
                         }
                         catch (OverflowException)
                         {
                             MessageBox.Show("cislo na radku je prilis velke nebo male");
+                            continue;
                         }
                         catch(FormatException)
                         {
-                           //cislo neni cele, nezahrnujeme jej do soucinu
+                            //cislo neni cele, nezahrnujeme jej do soucinu
+                            continue;
                         }
-                        
+                        vysledek = checked(vysledek * cislo);
 
                     }
                     MessageBox.Show("vysledek je: " + vysledek);
@@ -58,6 +57,10 @@ namespace vyjimky06
             catch (IOException)
             {
                 MessageBox.Show("chyba při čtení souboru (soubor je poškozený)");
+            }
+            catch (OverflowException)
+            {
+                MessageBox.Show("Součin je příliš velké nebo malé číslo");
             }
             catch (Exception ex)
             {
