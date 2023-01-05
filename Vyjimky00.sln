@@ -11,6 +11,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Vyjimky01", "Vyjimky01\Vyji
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "vyjimky03", "vyjimky03\vyjimky03.csproj", "{D63E8036-A71C-430C-8FA5-7089741C152C}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Vyjimky04", "Vyjimky04\Vyjimky04.csproj", "{5747609E-21A7-4C45-8B6C-1DF871C2ACCC}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Vyjimky05", "Vyjimky05\Vyjimky05.csproj", "{DB74D94C-5332-44DE-B442-2B78B93E3BA3}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,6 +37,14 @@ Global
 		{D63E8036-A71C-430C-8FA5-7089741C152C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D63E8036-A71C-430C-8FA5-7089741C152C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D63E8036-A71C-430C-8FA5-7089741C152C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5747609E-21A7-4C45-8B6C-1DF871C2ACCC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5747609E-21A7-4C45-8B6C-1DF871C2ACCC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5747609E-21A7-4C45-8B6C-1DF871C2ACCC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5747609E-21A7-4C45-8B6C-1DF871C2ACCC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DB74D94C-5332-44DE-B442-2B78B93E3BA3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DB74D94C-5332-44DE-B442-2B78B93E3BA3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DB74D94C-5332-44DE-B442-2B78B93E3BA3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DB74D94C-5332-44DE-B442-2B78B93E3BA3}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
