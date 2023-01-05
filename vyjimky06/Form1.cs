@@ -39,7 +39,7 @@ namespace vyjimky06
                         }
                         catch (OverflowException)
                         {
-                            // přetečení - product zůstane nezměněn
+                            MessageBox.Show("cislo na radku je prilis velke nebo male");
                         }
                         catch(FormatException)
                         {
