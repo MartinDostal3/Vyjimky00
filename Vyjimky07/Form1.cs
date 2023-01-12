@@ -32,15 +32,12 @@ namespace Vyjimky07
                     while (!reader.EndOfStream)
                     {
                         try
-                        {
-                            
+                        {                            
                             string line = reader.ReadLine();
                             DateTime dnes = DateTime.Today;
                             DateTime narozen = DateTime.Parse(line);
-
                             int age = dnes.Year - narozen.Year;
                             DateTime bDayThisYear = narozen.AddYears(age);
-
                             if (bDayThisYear > dnes) age--;
                             soucet += age;
                             ++pocet;
