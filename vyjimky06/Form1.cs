@@ -56,7 +56,7 @@ namespace vyjimky06
             }
             catch (IOException)
             {
-                MessageBox.Show("chyba při čtení souboru (soubor je poškozený)");
+                MessageBox.Show("chyba při čtení souboru.(soubor může být poškozený)");
             }
             catch (OverflowException)
             {

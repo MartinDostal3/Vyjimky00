@@ -34,6 +34,7 @@ namespace Vyjimky05
                     }
                     catch (OverflowException)
                     {
+                        
                         pole[i] = cislo;
                     }
                 }
